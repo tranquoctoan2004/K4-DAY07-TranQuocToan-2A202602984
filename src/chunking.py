@@ -122,6 +122,76 @@ class RecursiveChunker:
         return chunks
 
 
+class HeadingChunker:
+    """
+    Split Markdown text into chunks aligned to headings (## Điều ..., ### ...).
+
+    Rules:
+        - Mỗi heading (bất kỳ cấp độ #, ##, ###...) mở ra một section mới.
+        - Nếu section đủ ngắn (<= chunk_size), giữ nguyên làm 1 chunk.
+        - Nếu section quá dài, hạ xuống RecursiveChunker để chia nhỏ,
+          rồi gắn lại tiêu đề heading vào đầu mỗi mảnh con để không mất ngữ cảnh.
+        - Phần text đứng trước heading đầu tiên (nếu có, không tính H1 title)
+          được coi là một section riêng (thường là đoạn mở đầu / lời giới thiệu).
+    """
+
+    HEADING_RE = re.compile(r"(?m)^(#{1,6})\s+.*$")
+
+    def __init__(self, chunk_size: int = 500) -> None:
+        self.chunk_size = chunk_size
+        self._fallback = RecursiveChunker(chunk_size=chunk_size)
+
+    def chunk(self, text: str) -> list[str]:
+        if not text or not text.strip():
+            return []
+
+        matches = list(self.HEADING_RE.finditer(text))
+        if not matches:
+            # Không có heading nào -> coi cả văn bản là 1 section, hạ xuống recursive nếu dài.
+            return self._chunk_section(None, text)
+
+        sections: list[tuple[str | None, str]] = []
+
+        # Phần trước heading đầu tiên (nếu có nội dung đáng kể).
+        preamble = text[: matches[0].start()].strip()
+        if preamble:
+            sections.append((None, preamble))
+
+        for i, m in enumerate(matches):
+            start = m.start()
+            end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+            heading_line = m.group().strip()
+            body = text[start:end].strip()
+            sections.append((heading_line, body))
+
+        chunks: list[str] = []
+        for heading, body in sections:
+            chunks.extend(self._chunk_section(heading, body))
+        return chunks
+
+    def _chunk_section(self, heading: str | None, section_text: str) -> list[str]:
+        section_text = section_text.strip()
+        if not section_text:
+            return []
+
+        if len(section_text) <= self.chunk_size:
+            return [section_text]
+
+        # Section quá dài -> hạ xuống recursive, rồi gắn lại heading vào mỗi mảnh
+        # con để mỗi chunk vẫn tự mang đủ ngữ cảnh (biết mình thuộc heading nào).
+        pieces = self._fallback.chunk(section_text)
+        if not heading:
+            return pieces
+
+        result = []
+        for piece in pieces:
+            if piece.strip().startswith(heading):
+                result.append(piece)
+            else:
+                result.append(f"{heading}\n{piece}")
+        return result
+
+
 def _dot(a: list[float], b: list[float]) -> float:
     return sum(x * y for x, y in zip(a, b))
 

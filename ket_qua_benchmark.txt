@@ -1,0 +1,51 @@
+Chiến lược chunk: HeadingChunker
+Đã nạp 116 chunk từ data\chinh-sach-doi-tra-tiki
+
+=== Query 1: Thời gian hỗ trợ đổi trả hàng tại Tiki là bao nhiêu ngày?
+    Gold answer: 30 ngày kể từ lúc nhận hàng thành công (áp dụng từ đơn hàng đặt từ 15/04/2024); riêng Thiết bị số - Phụ kiện số, Điện gia dụng do Tiki Trading bán được đổi trả trong 365 ngày nếu lỗi kỹ thuật.
+    top1: score=0.298 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#4
+           preview: ## Trường hợp Nhà Bán từ chối yêu cầu đổi – trả – bảo hành của Khách hàng mà không cung cấp được bằn...
+    top2: score=0.286 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#32
+           preview: ## Trường hợp Nhà Bán thương lượng với Khách hàng một phương án đổi trả khác với yêu cầu ban đầu và ...
+    top3: score=0.222 doc_id=buyer-chinh-sach-bao-hanh id=buyer-chinh-sach-bao-hanh#6
+           preview: ## Tiki bảo hành bằng các hình thức nào?  Sản phẩm tại Tiki sẽ được bảo hành bằng 1 trong 4 hình thứ...
+
+=== Query 2: Sản phẩm bảo hành gửi về Tiki thì mất bao lâu để nhận lại?
+    metadata_filter={'audience': 'buyer'}
+    Gold answer: Khoảng 15-30 ngày tùy linh kiện thay thế (không tính thời gian vận chuyển); riêng sản phẩm Apple dự kiến 30-60 ngày.
+    top1: score=0.251 doc_id=buyer-san-pham-han-che-doi-tra id=buyer-san-pham-han-che-doi-tra#3
+           preview: ## Danh mục sản phẩm không áp dụng đổi - trả theo nhu cầu - Các sản phẩm thuộc sữa - trứng (sữa, bơ,...
+    top2: score=0.200 doc_id=buyer-chinh-sach-doi-tra-hoan-tien id=buyer-chinh-sach-doi-tra-hoan-tien#5
+           preview: ### Lý do đổi trả: Trả do nhu cầu (đổi ý)  - Sản phẩm còn nguyên tình trạng như khi nhận, hộp và bao...
+    top3: score=0.184 doc_id=buyer-san-pham-han-che-doi-tra id=buyer-san-pham-han-che-doi-tra#1
+           preview: ## Danh mục sản phẩm không áp dụng đổi - trả theo nhu cầu...
+
+=== Query 3: Nhà Bán cần lưu trữ video đóng gói hàng hóa trong bao lâu?
+    metadata_filter={'audience': 'seller'}
+    Gold answer: Tối thiểu 45 ngày (30 ngày kể từ khi giao hàng thành công cộng thêm thời gian luân chuyển giao hàng và thu hồi sản phẩm).
+    top1: score=0.214 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#5
+           preview: ## Trường hợp Nhà Bán từ chối yêu cầu đổi – trả – bảo hành của Khách hàng mà không cung cấp được bằn...
+    top2: score=0.191 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#26
+           preview: ## Nhà Bán xác nhận phương án xử lý yêu cầu đổi, trả, bảo hành qua đâu?  Nhà Bán xác nhận phương án ...
+    top3: score=0.183 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#22
+           preview: ## Làm sao để theo dõi và phản hồi phương án xử lý đối với yêu cầu đổi, trả, bảo hành? - Với đơn hàn...
+
+=== Query 4: Những nhóm sản phẩm nào không được đổi trả theo nhu cầu?
+    Gold answer: Ví dụ: đồ lót/đồ bơi, nước hoa, trang sức, báo/tạp chí và CD/DVD, hoa tươi/cây cảnh, voucher-dịch vụ, thực phẩm tươi sống/đông lạnh, hàng giao từ nước ngoài, quà tặng kèm.
+    top1: score=0.256 doc_id=buyer-chinh-sach-doi-tra-hoan-tien id=buyer-chinh-sach-doi-tra-hoan-tien#33
+           preview: ## Chính sách hoàn tiền – Bằng chứng và giải quyết tranh chấp 1. Tất cả yêu cầu đổi/trả/bảo hành của...
+    top2: score=0.237 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#30
+           preview: ## Nhà Bán có thời gian bao lâu để xác nhận yêu cầu đổi, trả, bảo hành? - Với đơn hàng đổi, trả, bảo...
+    top3: score=0.204 doc_id=buyer-chinh-sach-doi-tra-hoan-tien id=buyer-chinh-sach-doi-tra-hoan-tien#23
+           preview: ## Chính sách hoàn tiền – Quy trình hoàn tiền  Nhìn chung, Tiki sẽ hỗ trợ khách hàng trả lại sản phẩ...
+
+=== Query 5: Quy trình Nhà Bán xử lý khi nhận lại hàng trả từ khách hàng gồm những bước nào?
+    metadata_filter={'audience': 'seller'}
+    Gold answer: Khách đóng gói trả về theo hướng dẫn; Nhà Bán khi nhận hàng từ đối tác vận chuyển phải đồng kiểm, quay clip mở sản phẩm; nếu hàng trả về lỗi/hư hỏng/sai sản phẩm thì giữ hàng, giữ clip và khiếu nại tại Seller Center để Tiki xử lý.
+    top1: score=0.376 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#27
+           preview: ## Sau khi Nhà Bán "Đồng ý" yêu cầu đổi trả, Nhà Bán cần làm gì tiếp theo?  Nhà Bán không cần xử lý ...
+    top2: score=0.263 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#23
+           preview: ## Làm sao để theo dõi và phản hồi phương án xử lý đối với yêu cầu đổi, trả, bảo hành? - Trường hợp ...
+    top3: score=0.256 doc_id=seller-faq-doi-tra-bao-hanh id=seller-faq-doi-tra-bao-hanh#3
+           preview: ## Nhà Bán nên làm gì khi nhận kiện hàng trả từ khách hàng? - Trong trường hợp sản phẩm trả về bị lỗ...
+
