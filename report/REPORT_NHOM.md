@@ -14,31 +14,33 @@
 
 ### Chủ đề (Domain) & Lý Do Chọn
 
-**Chủ đề:** [ví dụ: Customer support FAQ, Luật Việt Nam, công thức nấu ăn, ...]
+**Chủ đề:** chính sách đổi trả, bảo hành và quy định người bán/người mua trên sàn thương mại điện tử Tiki. Tiki công bố chính sách chính thức cho cả người mua (hotro.tiki.vn) lẫn nhà bán (hocvien.tiki.vn), có con số, thời hạn và điều kiện cụ thể, nên metadata_filter theo audience có việc thật để làm. Nội dung được chia theo mục rõ ràng, phù hợp để so sánh các chiến lược chunking.
 
 **Tại sao nhóm chọn chủ đề này?**
-> *Viết 2-3 câu:*
+
+> _Viết 2-3 câu:_
 
 ### Danh sách tài liệu (Data Inventory)
 
-| # | Tên tài liệu | Nguồn (Source URL) | Ngày lấy / Phiên bản | Số ký tự | Metadata đã gán |
-|---|--------------|------------|--------------------|----------|-----------------|
-| 1 | | | | | |
-| 2 | | | | | |
-| 3 | | | | | |
-| 4 | | | | | |
-| 5 | | | | | |
-
+### Data Inventory
+| doc_id | audience | Nguồn | document_version | Ký tự |
+|---|---|---|---|---|
+| buyer-chinh-sach-doi-tra-hoan-tien | buyer | hotro.tiki.vn/knowledge-base/post/802-chinh-sach-ve-doi-tra-hang-va-hoan-tien | effective-2026-07-01 | 11.454 |
+| buyer-chinh-sach-bao-hanh | buyer | hotro.tiki.vn/knowledge-base/post/772-chinh-sach-bao-hanh-tai-tiki-nhu-the-nao | effective-2013-03-19 | 3.000 |
+| buyer-san-pham-han-che-doi-tra | buyer | hotro.tiki.vn/knowledge-base/post/841-nhung-san-pham-nao-toi-khong-the-doi-tra-do-nhu-cau | not-stated | 1.478 |
+| seller-faq-doi-tra-bao-hanh | seller | hocvien.tiki.vn/faq/cau-hoi-thuong-gap-ve-xu-ly-doi-tra-bao-hanh/ | not-stated | 13.073 |
+| seller-fbt-quy-trinh-doi-tra-bao-hanh | seller | hocvien.tiki.vn/faq/mo-hinh-fbt-huong-dan-quy-trinh-xu-ly-doi-tra-bao-hanh/ | not-stated | 2.640 |
 **Danh sách kiểm tra quản trị dữ liệu (Data governance checklist):**
+
 - [ ] Tập tài liệu (Corpus) chỉ chứa nguồn công khai/được phép dùng và không chứa dữ liệu cá nhân, thông tin đăng nhập hoặc tài liệu nội bộ.
 - [ ] Mỗi tài liệu có `source_url`, `retrieved_at`, `document_version` (hoặc ngày hiệu lực) trong metadata.
 
 ### Cấu trúc Metadata (Metadata Schema)
 
 | Trường metadata | Kiểu | Ví dụ giá trị | Tại sao hữu ích cho truy xuất (retrieval)? |
-|----------------|------|---------------|-------------------------------|
-| | | | |
-| | | | |
+| --------------- | ---- | ------------- | ------------------------------------------ |
+|                 |      |               |                                            |
+|                 |      |               |                                            |
 
 ---
 
@@ -50,30 +52,34 @@
 
 Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 
-| Tài liệu | Chiến lược (Strategy) | Số lượng Chunk | Độ dài trung bình | Giữ được ngữ cảnh không? |
-|-----------|----------|-------------|------------|-------------------|
-| | FixedSizeChunker (`fixed_size`) | | | |
-| | SentenceChunker (`by_sentences`) | | | |
-| | RecursiveChunker (`recursive`) | | | |
+| Tài liệu | Chiến lược (Strategy)            | Số lượng Chunk | Độ dài trung bình | Giữ được ngữ cảnh không? |
+| -------- | -------------------------------- | -------------- | ----------------- | ------------------------ |
+|          | FixedSizeChunker (`fixed_size`)  |                |                   |                          |
+|          | SentenceChunker (`by_sentences`) |                |                   |                          |
+|          | RecursiveChunker (`recursive`)   |                |                   |                          |
 
 ### Chiến lược của từng thành viên
 
 > Mỗi thành viên điền một khối dưới đây (copy thêm nếu nhóm có nhiều hơn 3 người).
 
 **Thành viên 1 — [Tên]**
+
 - **Loại chiến lược:** [FixedSize / Sentence / Recursive / custom]
-- **Mô tả & lý do chọn cho chủ đề này:** *(2-3 câu)*
+- **Mô tả & lý do chọn cho chủ đề này:** _(2-3 câu)_
 - **Code snippet (nếu custom):**
+
 ```python
 # Dán mã nguồn (implementation) vào đây
 ```
 
 **Thành viên 2 — [Tên]**
+
 - **Loại chiến lược:**
 - **Mô tả & lý do chọn:**
 - **Code snippet (nếu custom):**
 
 **Thành viên 3 — [Tên]**
+
 - **Loại chiến lược:**
 - **Mô tả & lý do chọn:**
 - **Code snippet (nếu custom):**
@@ -81,13 +87,14 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 ### So Sánh Giữa Các Thành Viên
 
 | Thành viên | Chiến lược (Strategy) | Điểm truy xuất (/10) | Điểm mạnh | Điểm yếu |
-|-----------|----------|----------------------|-----------|----------|
-| | | | | |
-| | | | | |
-| | | | | |
+| ---------- | --------------------- | -------------------- | --------- | -------- |
+|            |                       |                      |           |          |
+|            |                       |                      |           |          |
+|            |                       |                      |           |          |
 
 **Chiến lược nào tốt nhất cho chủ đề này? Tại sao?**
-> *Viết 2-3 câu — đây là phần được đánh giá cao nhất (khả năng suy nghĩ & giải thích):*
+
+> _Viết 2-3 câu — đây là phần được đánh giá cao nhất (khả năng suy nghĩ & giải thích):_
 
 ---
 
@@ -97,50 +104,54 @@ Chạy `ChunkingStrategyComparator().compare()` trên 2-3 tài liệu:
 
 > **Đúng 5 câu hỏi**, đa dạng, có thể kiểm chứng; **ít nhất 1 câu** cần lọc metadata mới trả lời tốt. Đây là bộ câu hỏi chung cho mọi thành viên chạy.
 
-| # | Câu hỏi (Query) | Câu trả lời chuẩn (Gold Answer) | Chunk nào chứa thông tin? |
-|---|-------|-------------------------------|--------------------------|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| #   | Câu hỏi (Query) | Câu trả lời chuẩn (Gold Answer) | Chunk nào chứa thông tin? |
+| --- | --------------- | ------------------------------- | ------------------------- |
+| 1   |                 |                                 |                           |
+| 2   |                 |                                 |                           |
+| 3   |                 |                                 |                           |
+| 4   |                 |                                 |                           |
+| 5   |                 |                                 |                           |
 
 ### Tổng hợp chất lượng truy xuất của nhóm
 
 > Cách chấm (theo `docs/SCORING.md`): **2 điểm/câu** — top-3 chứa chunk liên quan + agent trả lời đúng (2), có liên quan nhưng thiếu/không ở top-1 (1), không có trong top-3 (0).
 
-| # | Câu hỏi | Chiến lược tốt nhất cho câu này | Có chunk liên quan trong top-3? | Ghi chú |
-|---|---------|-------------------------------|-------------------------------|---------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
+| #   | Câu hỏi | Chiến lược tốt nhất cho câu này | Có chunk liên quan trong top-3? | Ghi chú |
+| --- | ------- | ------------------------------- | ------------------------------- | ------- |
+| 1   |         |                                 |                                 |         |
+| 2   |         |                                 |                                 |         |
+| 3   |         |                                 |                                 |         |
+| 4   |         |                                 |                                 |         |
+| 5   |         |                                 |                                 |         |
 
 **Lọc bằng metadata có giúp ích không? Ở câu hỏi nào?**
-> *Viết 2-3 câu:*
+
+> _Viết 2-3 câu:_
 
 ---
 
 ## 4. Thuyết trình (Demo) & Bài học nhóm — Nhóm (5 điểm)
 
 **Những phân tích (insights) hay nhất nhóm sẽ trình bày:**
-> *Liệt kê 2-3 ý:*
+
+> _Liệt kê 2-3 ý:_
 
 **Bài học rút ra khi so sánh trong nhóm:**
-> *Viết 2-3 câu — cùng tài liệu nhưng chiến lược khác nhau dẫn tới khác biệt gì?*
+
+> _Viết 2-3 câu — cùng tài liệu nhưng chiến lược khác nhau dẫn tới khác biệt gì?_
 
 **Nếu làm lại, nhóm sẽ thay đổi gì trong chiến lược dữ liệu (data strategy)?**
-> *Viết 2-3 câu:*
+
+> _Viết 2-3 câu:_
 
 ---
 
 ## Tự Đánh Giá (Phần Nhóm)
 
-| Tiêu chí | Điểm tự đánh giá |
-|----------|-------------------|
-| Lựa chọn tài liệu (Document Set Quality) | / 10 |
-| Thiết kế chiến lược (Strategy Design) | / 15 |
-| Chất lượng truy xuất (Retrieval Quality) | / 10 |
-| Thuyết trình (Demo) | / 5 |
-| **Tổng phần nhóm** | **/ 40** |
+| Tiêu chí                                 | Điểm tự đánh giá |
+| ---------------------------------------- | ---------------- |
+| Lựa chọn tài liệu (Document Set Quality) | / 10             |
+| Thiết kế chiến lược (Strategy Design)    | / 15             |
+| Chất lượng truy xuất (Retrieval Quality) | / 10             |
+| Thuyết trình (Demo)                      | / 5              |
+| **Tổng phần nhóm**                       | **/ 40**         |
